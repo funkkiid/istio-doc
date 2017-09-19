@@ -1,0 +1,970 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>将服务集成到网格中 · Istio官方文档中文版</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="Sky Ao <aoxiaojian@gmail.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-callouts/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-wide-page/wide.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ingress.html" />
+    
+    
+    <link rel="prev" href="installing-istio.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://doczh.cn" target="_blank" class="custom-link">doczh.cn</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    官方文档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../concepts/">
+            
+                <a href="../concepts/">
+            
+                    
+                    概念
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../concepts/what-is-istio/">
+            
+                <a href="../concepts/what-is-istio/">
+            
+                    
+                    Istio是什么?
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../concepts/what-is-istio/overview.html">
+            
+                <a href="../concepts/what-is-istio/overview.html">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../concepts/what-is-istio/goals.html">
+            
+                <a href="../concepts/what-is-istio/goals.html">
+            
+                    
+                    设计目标
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../concepts/traffic-management/">
+            
+                <a href="../concepts/traffic-management/">
+            
+                    
+                    流量管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1" data-path="../concepts/traffic-management/overview.html">
+            
+                <a href="../concepts/traffic-management/overview.html">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.2" data-path="../concepts/traffic-management/pilot.html">
+            
+                <a href="../concepts/traffic-management/pilot.html">
+            
+                    
+                    Pilot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3" data-path="../concepts/traffic-management/request-routing.html">
+            
+                <a href="../concepts/traffic-management/request-routing.html">
+            
+                    
+                    请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.4" data-path="../concepts/traffic-management/load-balancing.html">
+            
+                <a href="../concepts/traffic-management/load-balancing.html">
+            
+                    
+                    发现和负载均衡
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.5" data-path="../concepts/traffic-management/handling-failures.html">
+            
+                <a href="../concepts/traffic-management/handling-failures.html">
+            
+                    
+                    处理故障
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.6" data-path="../concepts/traffic-management/fault-injection.html">
+            
+                <a href="../concepts/traffic-management/fault-injection.html">
+            
+                    
+                    故障注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.7" data-path="../concepts/traffic-management/rules-configuration.html">
+            
+                <a href="../concepts/traffic-management/rules-configuration.html">
+            
+                    
+                    规则配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../concepts/network-and-auth/">
+            
+                <a href="../concepts/network-and-auth/">
+            
+                    
+                    网络和认证
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.1" data-path="../concepts/network-and-auth/auth.html">
+            
+                <a href="../concepts/network-and-auth/auth.html">
+            
+                    
+                    认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../concepts/policy-and-control/">
+            
+                <a href="../concepts/policy-and-control/">
+            
+                    
+                    策略与控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.4.1" data-path="../concepts/policy-and-control/attributes.html">
+            
+                <a href="../concepts/policy-and-control/attributes.html">
+            
+                    
+                    属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.2" data-path="../concepts/policy-and-control/mixer.html">
+            
+                <a href="../concepts/policy-and-control/mixer.html">
+            
+                    
+                    Mixer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.3" data-path="../concepts/policy-and-control/mixer-config.html">
+            
+                <a href="../concepts/policy-and-control/mixer-config.html">
+            
+                    
+                    Mixer配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.4" data-path="../concepts/policy-and-control/mixer-aspect-config.html">
+            
+                <a href="../concepts/policy-and-control/mixer-aspect-config.html">
+            
+                    
+                    Mixer Aspect配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    任务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="installing-istio.html">
+            
+                <a href="installing-istio.html">
+            
+                    
+                    安装Istio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2.2" data-path="integrating-services-into-istio.html">
+            
+                <a href="integrating-services-into-istio.html">
+            
+                    
+                    将服务集成到网格中
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="ingress.html">
+            
+                <a href="ingress.html">
+            
+                    
+                    启用入口流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="egress.html">
+            
+                <a href="egress.html">
+            
+                    
+                    启用出口流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="request-routing.html">
+            
+                <a href="request-routing.html">
+            
+                    
+                    配置请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="fault-injection.html">
+            
+                <a href="fault-injection.html">
+            
+                    
+                    故障注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="request-timeouts.html">
+            
+                <a href="request-timeouts.html">
+            
+                    
+                    设置请求超时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="rate-limiting.html">
+            
+                <a href="rate-limiting.html">
+            
+                    
+                    启用限速
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="basic-access-control.html">
+            
+                <a href="basic-access-control.html">
+            
+                    
+                    启用简单的访问控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="istio-auth.html">
+            
+                <a href="istio-auth.html">
+            
+                    
+                    测试Istio Auth
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="metrics-logs.html">
+            
+                <a href="metrics-logs.html">
+            
+                    
+                    收集指标和日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="zipkin-tracing.html">
+            
+                <a href="zipkin-tracing.html">
+            
+                    
+                    分布式请求跟踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../samples/">
+            
+                <a href="../samples/">
+            
+                    
+                    示例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../samples/bookinfo.html">
+            
+                <a href="../samples/bookinfo.html">
+            
+                    
+                    BookInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../tags.html">
+            
+                <a href="../../tags.html">
+            
+                    
+                    全文标签总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >将服务集成到网格中</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5C06;&#x670D;&#x52A1;&#x96C6;&#x6210;&#x5230;&#x7F51;&#x683C;&#x4E2D;">&#x5C06;&#x670D;&#x52A1;&#x96C6;&#x6210;&#x5230;&#x7F51;&#x683C;&#x4E2D;</h1>
+<p>&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x5C06;Kubernetes&#x4E0A;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E0E;Istio&#x8FDB;&#x884C;&#x96C6;&#x6210;&#x3002;&#x60A8;&#x5C06;&#x5B66;&#x4E60;&#x5982;&#x4F55;&#x4F7F;&#x7528; <a href="../reference/commands/istioctl.md#istioctl-kube-inject">istioctl kube-inject</a> &#x5C06; Envoy sidecar &#x63D2;&#x5165;&#x5230;&#x90E8;&#x7F72;&#x4E2D;.</p>
+<h2 id="&#x5F00;&#x59CB;&#x4E4B;&#x524D;">&#x5F00;&#x59CB;&#x4E4B;&#x524D;</h2>
+<p>&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#x5047;&#x8BBE;&#x4F60;&#x5DF2;&#x7ECF;&#x5728;Kubernetes&#x4E0A;&#x90E8;&#x7F72;&#x4E86;Istio&#x3002;&#x5982;&#x679C;&#x8FD8;&#x6CA1;&#x6709;&#x8FD9;&#x6837;&#x505A;&#xFF0C;&#x8BF7;&#x5148;&#x5B8C;&#x6210; <a href="installing-istio.html">&#x5B89;&#x88C5;&#x6B65;&#x9AA4;</a>&#x3002;</p>
+<h2 id="&#x5C06;envoy-sidecar&#x6CE8;&#x5165;&#x5230;&#x90E8;&#x7F72;&#x4E2D;">&#x5C06;Envoy sidecar&#x6CE8;&#x5165;&#x5230;&#x90E8;&#x7F72;&#x4E2D;</h2>
+<p>&#x793A;&#x4F8B;&#x90E8;&#x7F72;&#x548C;&#x7528;&#x6765;&#x6F14;&#x793A;&#x6B64;&#x4EFB;&#x52A1;&#x7684;&#x670D;&#x52A1;&#x3002;&#x4FDD;&#x5B58;&#x4E3A; <code>apps.yaml</code>&#x3002;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> Service
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> service-one
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    app:</span> service-one
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  ports:</span>
+<span class="hljs-attr">  - port:</span> <span class="hljs-number">80</span>
+<span class="hljs-attr">    targetPort:</span> <span class="hljs-number">8080</span>
+<span class="hljs-attr">    name:</span> http
+<span class="hljs-attr">  selector:</span>
+<span class="hljs-attr">    app:</span> service-one
+<span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> extensions/v1beta1
+<span class="hljs-attr">kind:</span> Deployment
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> service-one
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  replicas:</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">  template:</span>
+<span class="hljs-attr">    metadata:</span>
+<span class="hljs-attr">      labels:</span>
+<span class="hljs-attr">        app:</span> service-one
+<span class="hljs-attr">    spec:</span>
+<span class="hljs-attr">      containers:</span>
+<span class="hljs-attr">      - name:</span> app
+<span class="hljs-attr">        image:</span> gcr.io/google_containers/echoserver:<span class="hljs-number">1.4</span>
+<span class="hljs-attr">        ports:</span>
+<span class="hljs-attr">        - containerPort:</span> <span class="hljs-number">8080</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> v1
+<span class="hljs-attr">kind:</span> Service
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> service-two
+<span class="hljs-attr">  labels:</span>
+<span class="hljs-attr">    app:</span> service-two
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  ports:</span>
+<span class="hljs-attr">  - port:</span> <span class="hljs-number">80</span>
+<span class="hljs-attr">    targetPort:</span> <span class="hljs-number">8080</span>
+<span class="hljs-attr">    name:</span> http-status
+<span class="hljs-attr">  selector:</span>
+<span class="hljs-attr">    app:</span> service-two
+<span class="hljs-meta">---</span>
+<span class="hljs-attr">apiVersion:</span> extensions/v1beta1
+<span class="hljs-attr">kind:</span> Deployment
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> service-two
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  replicas:</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">  template:</span>
+<span class="hljs-attr">    metadata:</span>
+<span class="hljs-attr">      labels:</span>
+<span class="hljs-attr">        app:</span> service-two
+<span class="hljs-attr">    spec:</span>
+<span class="hljs-attr">      containers:</span>
+<span class="hljs-attr">      - name:</span> app
+<span class="hljs-attr">        image:</span> gcr.io/google_containers/echoserver:<span class="hljs-number">1.4</span>
+<span class="hljs-attr">        ports:</span>
+<span class="hljs-attr">        - containerPort:</span> <span class="hljs-number">8080</span>
+</code></pre>
+<p><a href="https://kubernetes.io/docs/concepts/services-networking/service/" target="_blank">Kubernetes Services</a> &#x662F;&#x6B63;&#x5E38;&#x4F7F;&#x7528;Istio&#x670D;&#x52A1;&#x6240;&#x5FC5;&#x9700;&#x7684;&#x3002;&#x670D;&#x52A1;&#x7AEF;&#x53E3;&#x5FC5;&#x987B;&#x547D;&#x540D;&#xFF0C;&#x8FD9;&#x4E9B;&#x540D;&#x79F0;&#x5FC5;&#x987B;&#x4EE5; <em>http</em> &#x6216; <em>grpc</em> &#x524D;&#x7F00;&#x5F00;&#x5934;&#xFF0C;&#x4EE5;&#x5229;&#x7528;Istio&#x7684;L7&#x8DEF;&#x7531;&#x529F;&#x80FD;&#xFF0C;&#x4F8B;&#x5982; <code>name: http-foo</code> &#x6216;&#x8005; <code>name: http</code> &#x5F88;&#x597D;&#x3002;&#x5E26;&#x6709;&#x672A;&#x547D;&#x540D;&#x7AEF;&#x53E3;&#x6216;&#x6CA1;&#x6709;  <em>http</em> &#x6216; <em>grpc</em> &#x524D;&#x7F00;&#x7684;&#x670D;&#x52A1;&#x5C06;&#x4F5C;&#x4E3A;L4&#x6D41;&#x91CF;&#x8DEF;&#x7531;&#x3002;</p>
+<p>&#x63D0;&#x4EA4;&#x4E00;&#x4E2A;YAML&#x8D44;&#x6E90;&#x5230;API&#x670D;&#x52A1;&#x5668;,&#x5E26;&#x6709;&#x88AB;&#x6CE8;&#x5165;&#x7684; Envoy sidecar&#x3002;&#x4EE5;&#x4E0B;&#x4EFB;&#x4F55;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x90FD;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-bash">kubectl apply <span class="hljs-_">-f</span> &lt;(istioctl kube-inject <span class="hljs-_">-f</span> apps.yaml)
+</code></pre>
+<p>&#x53D1;&#x8D77;&#x4E00;&#x4E2A;&#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#xFF08;&#x670D;&#x52A1;&#x4E00;&#xFF09;&#x5230;&#x670D;&#x52A1;&#x5668;&#xFF08;service-two&#xFF09;&#x7684;&#x8BF7;&#x6C42;&#x3002;</p>
+<pre><code class="lang-bash">CLIENT=$(kubectl get pod <span class="hljs-_">-l</span> app=service-one -o jsonpath=<span class="hljs-string">&apos;{.items[0].metadata.name}&apos;</span>)
+SERVER=$(kubectl get pod <span class="hljs-_">-l</span> app=service-two -o jsonpath=<span class="hljs-string">&apos;{.items[0].metadata.name}&apos;</span>)
+
+kubectl <span class="hljs-built_in">exec</span> -it <span class="hljs-variable">${CLIENT}</span> -c app -- curl service-two:80 | grep x-request-id
+</code></pre>
+<pre><code class="lang-bash">x-request-id=a641eff7-eb82-4a4f-b67b-53<span class="hljs-built_in">cd</span>3a03c399
+</code></pre>
+<p>&#x9A8C;&#x8BC1;&#x6D41;&#x91CF;&#x88AB; Envoy sidecar &#x62E6;&#x622A;&#x3002;&#x7528;sidecar&#x8BBF;&#x95EE;&#x65E5;&#x5FD7;&#x6BD4;&#x8F83;HTTP&#x54CD;&#x5E94;&#x4E2D;&#x7684; <code>x-request-id</code> &#x3002;<code>x-request-id</code> &#x662F;&#x968F;&#x673A;&#x7684;. &#x51FA;&#x7AD9;&#x8BF7;&#x6C42;&#x65E5;&#x5FD7;&#x4E2D;&#x7684;IP&#x662F; service-two pod &#x7684;IP&#x3002;</p>
+<p>&#x5BA2;&#x6237;&#x7AEF;pod&#x7684;&#x4EE3;&#x7406;&#x4E0A;&#x7684;&#x51FA;&#x7AD9;&#x8BF7;&#x6C42;&#x3002;</p>
+<pre><code class="lang-bash">kubectl logs <span class="hljs-variable">${CLIENT}</span> proxy | grep a641eff7-eb82-4a4f-b67b-53<span class="hljs-built_in">cd</span>3a03c399
+</code></pre>
+<pre><code class="lang-bash">[2017-05-01T22:08:39.310Z] <span class="hljs-string">&quot;GET / HTTP/1.1&quot;</span> 200 - 0 398 3 3 <span class="hljs-string">&quot;-&quot;</span> <span class="hljs-string">&quot;curl/7.47.0&quot;</span> <span class="hljs-string">&quot;a641eff7-eb82-4a4f-b67b-53cd3a03c399&quot;</span> <span class="hljs-string">&quot;service-two&quot;</span> <span class="hljs-string">&quot;10.4.180.7:8080&quot;</span>
+</code></pre>
+<p>&#x670D;&#x52A1;&#x5668;pod&#x4EE3;&#x7406;&#x4E0A;&#x7684;&#x5165;&#x7AD9;&#x8BF7;&#x6C42;&#x3002;</p>
+<pre><code class="lang-bash">kubectl logs <span class="hljs-variable">${SERVER}</span> proxy | grep a641eff7-eb82-4a4f-b67b-53<span class="hljs-built_in">cd</span>3a03c399
+</code></pre>
+<pre><code class="lang-bash">[2017-05-01T22:08:39.310Z] <span class="hljs-string">&quot;GET / HTTP/1.1&quot;</span> 200 - 0 398 2 0 <span class="hljs-string">&quot;-&quot;</span> <span class="hljs-string">&quot;curl/7.47.0&quot;</span> <span class="hljs-string">&quot;a641eff7-eb82-4a4f-b67b-53cd3a03c399&quot;</span> <span class="hljs-string">&quot;service-two&quot;</span> <span class="hljs-string">&quot;127.0.0.1:8080&quot;</span>
+</code></pre>
+<p>Envoy sidecar &#x4E0D;&#x62E6;&#x622A;&#x76F8;&#x540C; pod &#x5185;&#x7684;&#x5BB9;&#x5668;&#x5230;&#x5BB9;&#x5668;&#x7684;&#x6D41;&#x91CF;,&#x5F53;&#x6D41;&#x91CF;&#x662F;&#x901A;&#x8FC7; localhost &#x901A;&#x8BAF;&#x65F6;&#x3002;&#x8FD9;&#x662F;&#x8BBE;&#x8BA1;&#x51B3;&#x5B9A;&#x7684;&#x3002;</p>
+<pre><code class="lang-bash">kubectl <span class="hljs-built_in">exec</span> -it <span class="hljs-variable">${SERVER}</span> -c app -- curl localhost:8080 | grep x-request-id
+</code></pre>
+<h2 id="&#x7406;&#x89E3;&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;">&#x7406;&#x89E3;&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;</h2>
+<p><code>istioctl kube-inject</code> &#x5728;&#x5411;Kubernetes API&#x670D;&#x52A1;&#x5668;&#x63D0;&#x4EA4;<em>&#x4E4B;&#x524D;</em>&#xFF0C;&#x5C06;&#x989D;&#x5916;&#x7684;&#x5BB9;&#x5668;&#x6CE8;&#x5165;&#x5BA2;&#x6237;&#x7AEF;&#x7684;YAML&#x8D44;&#x6E90;&#x3002;&#x8FD9;&#x4E2A;&#x5C06;&#x6700;&#x7EC8;&#x88AB;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x6CE8;&#x5165;&#x53D6;&#x4EE3;&#x3002;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-bash">kubectl get deployment service-one -o yaml
+</code></pre>
+<p>&#x6765;&#x68C0;&#x67E5;&#x5DF2;&#x4FEE;&#x6539;&#x7684;&#x90E8;&#x7F72;&#xFF0C;&#x5E76;&#x67E5;&#x627E;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<ul>
+<li><p>&#x4EE3;&#x7406;&#x5BB9;&#x5668;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;Envoy proxy&#x548C;agent&#x6765;&#x7BA1;&#x7406;&#x672C;&#x5730;&#x4EE3;&#x7406;&#x914D;&#x7F6E;&#x3002;</p>
+</li>
+<li><p>&#x4E00;&#x4E2A; <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/" target="_blank">init-container</a> &#x7528;&#x6765;&#x7F16;&#x7A0B; <a href="https://en.wikipedia.org/wiki/Iptables" target="_blank">iptables</a>.</p>
+</li>
+</ul>
+<p>&#x4EE3;&#x7406;&#x5BB9;&#x5668;&#x4EE5;&#x7279;&#x5B9A;&#x7684;UID&#x8FD0;&#x884C;&#xFF0C;&#x4EE5;&#x4FBF;iptables&#x53EF;&#x4EE5;&#x5C06;&#x4EE3;&#x7406;&#x672C;&#x8EAB;&#x548C;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x4EE3;&#x7406;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x51FA;&#x7AD9;&#x6D41;&#x91CF;&#x533A;&#x5206;&#x5F00;&#x3002;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">- args:</span>
+<span class="hljs-bullet">    -</span> proxy
+<span class="hljs-bullet">    -</span> sidecar
+<span class="hljs-bullet">    -</span> <span class="hljs-string">&quot;-v&quot;</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-string">&quot;2&quot;</span>
+<span class="hljs-attr">  env:</span>
+<span class="hljs-bullet">    -</span>
+<span class="hljs-attr">      name:</span> POD_NAME
+<span class="hljs-attr">      valueFrom:</span>
+<span class="hljs-attr">        fieldRef:</span>
+<span class="hljs-attr">          apiVersion:</span> v1
+<span class="hljs-attr">          fieldPath:</span> metadata.name
+<span class="hljs-bullet">    -</span>
+<span class="hljs-attr">      name:</span> POD_NAMESPACE
+<span class="hljs-attr">      valueFrom:</span>
+<span class="hljs-attr">        fieldRef:</span>
+<span class="hljs-attr">          apiVersion:</span> v1
+<span class="hljs-attr">          fieldPath:</span> metadata.namespace
+<span class="hljs-bullet">    -</span>
+<span class="hljs-attr">      name:</span> POD_IP
+<span class="hljs-attr">      valueFrom:</span>
+<span class="hljs-attr">        fieldRef:</span>
+<span class="hljs-attr">          apiVersion:</span> v1
+<span class="hljs-attr">          fieldPath:</span> status.podIP
+<span class="hljs-attr">  image:</span> <span class="hljs-string">&quot;docker.io/istio/proxy:&lt;...tag... &gt;&quot;</span>
+<span class="hljs-attr">  imagePullPolicy:</span> Always
+<span class="hljs-attr">  name:</span> proxy
+<span class="hljs-attr">  securityContext:</span>
+<span class="hljs-attr">    runAsUser:</span> <span class="hljs-number">1337</span>
+</code></pre>
+<p>iptables &#x7528;&#x4E8E;&#x5C06;&#x6240;&#x6709;&#x5165;&#x7AD9;&#x548C;&#x51FA;&#x7AD9;&#x6D41;&#x91CF;&#x900F;&#x660E;&#x5730;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x4EE3;&#x7406;&#x3002;&#x4F7F;&#x7528;&#x521D;&#x59CB;&#x5316;&#x5BB9;&#x5668;&#x6709;&#x4E24;&#x4E2A;&#x539F;&#x56E0;&#xFF1A;</p>
+<ol>
+<li><p>iptables &#x9700;&#x8981; <a href="http://man7.org/linux/man-pages/man7/capabilities.7.html" target="_blank">NET_CAP_ADMIN</a>.</p>
+</li>
+<li><p>sidecar&#x7684;iptable&#x89C4;&#x5219;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x5728;pod&#x521B;&#x5EFA;&#x540E;&#x4E0D;&#x9700;&#x8981;&#x66F4;&#x65B0;&#x3002;&#x4EE3;&#x7406;&#x5BB9;&#x5668;&#x8D1F;&#x8D23;&#x52A8;&#x6001;&#x8DEF;&#x7531;&#x6D41;&#x91CF;&#x3002;</p>
+<pre><code class="lang-json"> {
+  <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;init&quot;</span>,
+  <span class="hljs-string">&quot;image&quot;</span>:<span class="hljs-string">&quot;docker.io/istio/init:&lt;..tag...&gt;&quot;</span>,
+  <span class="hljs-string">&quot;args&quot;</span>:[ <span class="hljs-string">&quot;-p&quot;</span>, <span class="hljs-string">&quot;15001&quot;</span>, <span class="hljs-string">&quot;-u&quot;</span>, <span class="hljs-string">&quot;1337&quot;</span> ],
+  <span class="hljs-string">&quot;imagePullPolicy&quot;</span>:<span class="hljs-string">&quot;Always&quot;</span>,
+  <span class="hljs-string">&quot;securityContext&quot;</span>:{
+    <span class="hljs-string">&quot;capabilities&quot;</span>:{
+      <span class="hljs-string">&quot;add&quot;</span>:[
+        <span class="hljs-string">&quot;NET_ADMIN&quot;</span>
+      ]
+    }
+  }
+ },
+</code></pre>
+</li>
+</ol>
+<h2 id="&#x6E05;&#x7406;">&#x6E05;&#x7406;</h2>
+<p>&#x5220;&#x9664;&#x793A;&#x4F8B;&#x670D;&#x52A1;&#x548C;&#x90E8;&#x7F72;&#x3002;</p>
+<pre><code class="lang-bash">kubectl delete <span class="hljs-_">-f</span> apps.yaml
+</code></pre>
+<h2 id="&#x4E0B;&#x4E00;&#x6B65;">&#x4E0B;&#x4E00;&#x6B65;</h2>
+<ul>
+<li><p>&#x67E5;&#x770B; <a href="../reference/commands/istioctl.md#istioctl-kube-inject">istioctl kube-inject</a> &#x7684;&#x5B8C;&#x6574;&#x6587;&#x6863;</p>
+</li>
+<li><p>&#x67E5;&#x770B; <a href="../samples/bookinfo.html">BookInfo</a> &#x793A;&#x4F8B;, &#x66F4;&#x5B8C;&#x6574;&#x7684;Kubernetes&#x4E0E;Istio&#x96C6;&#x6210;&#x7684;&#x5E94;&#x7528;&#x793A;&#x4F8B;</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="installing-istio.html" class="navigation navigation-prev " aria-label="Previous page: 安装Istio">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ingress.html" class="navigation navigation-next " aria-label="Next page: 启用入口流量">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"将服务集成到网格中","level":"1.2.2.2","depth":3,"next":{"title":"启用入口流量","level":"1.2.2.3","depth":3,"path":"docs/tasks/ingress.md","ref":"docs/tasks/ingress.md","articles":[]},"previous":{"title":"安装Istio","level":"1.2.2.1","depth":3,"path":"docs/tasks/installing-istio.md","ref":"docs/tasks/installing-istio.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","callouts","splitter","-sharing","edit-link","wide-page","page-toc-button","back-to-top-button","tags","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"callouts":{"showTypeInHeader":false},"livereload":{},"splitter":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"tags":{"placement":"top"},"edit-link":{"label":"Edit","base":"https://github.com/doczhcn/istio/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Sky Ao <aoxiaojian@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README_gitbook.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"adapterConfig":"/docs/reference/config/mixer/adapters","aspectConfig":"/docs/reference/config/mixer/aspects","mixerConfig":"/docs/reference/config/mixer/aspects/metrics.md","siteDataIstioVersion":"pre0.2"},"title":"Istio官方文档中文版","language":"zh-hans","links":{"sidebar":{"doczh.cn":"http://doczh.cn"}},"gitbook":">=3.2.0","description":"Istio官方文档中文版","extension":null},"file":{"path":"docs/tasks/integrating-services-into-istio.md","mtime":"2017-09-19T12:50:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-19T13:29:17.787Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

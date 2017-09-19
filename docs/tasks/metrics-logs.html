@@ -1,0 +1,966 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>收集指标和日志 · Istio官方文档中文版</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="Sky Ao <aoxiaojian@gmail.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-callouts/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-wide-page/wide.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="zipkin-tracing.html" />
+    
+    
+    <link rel="prev" href="istio-auth.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://doczh.cn" target="_blank" class="custom-link">doczh.cn</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    官方文档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../concepts/">
+            
+                <a href="../concepts/">
+            
+                    
+                    概念
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../concepts/what-is-istio/">
+            
+                <a href="../concepts/what-is-istio/">
+            
+                    
+                    Istio是什么?
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../concepts/what-is-istio/overview.html">
+            
+                <a href="../concepts/what-is-istio/overview.html">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../concepts/what-is-istio/goals.html">
+            
+                <a href="../concepts/what-is-istio/goals.html">
+            
+                    
+                    设计目标
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../concepts/traffic-management/">
+            
+                <a href="../concepts/traffic-management/">
+            
+                    
+                    流量管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1" data-path="../concepts/traffic-management/overview.html">
+            
+                <a href="../concepts/traffic-management/overview.html">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.2" data-path="../concepts/traffic-management/pilot.html">
+            
+                <a href="../concepts/traffic-management/pilot.html">
+            
+                    
+                    Pilot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3" data-path="../concepts/traffic-management/request-routing.html">
+            
+                <a href="../concepts/traffic-management/request-routing.html">
+            
+                    
+                    请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.4" data-path="../concepts/traffic-management/load-balancing.html">
+            
+                <a href="../concepts/traffic-management/load-balancing.html">
+            
+                    
+                    发现和负载均衡
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.5" data-path="../concepts/traffic-management/handling-failures.html">
+            
+                <a href="../concepts/traffic-management/handling-failures.html">
+            
+                    
+                    处理故障
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.6" data-path="../concepts/traffic-management/fault-injection.html">
+            
+                <a href="../concepts/traffic-management/fault-injection.html">
+            
+                    
+                    故障注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.7" data-path="../concepts/traffic-management/rules-configuration.html">
+            
+                <a href="../concepts/traffic-management/rules-configuration.html">
+            
+                    
+                    规则配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../concepts/network-and-auth/">
+            
+                <a href="../concepts/network-and-auth/">
+            
+                    
+                    网络和认证
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.1" data-path="../concepts/network-and-auth/auth.html">
+            
+                <a href="../concepts/network-and-auth/auth.html">
+            
+                    
+                    认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../concepts/policy-and-control/">
+            
+                <a href="../concepts/policy-and-control/">
+            
+                    
+                    策略与控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.4.1" data-path="../concepts/policy-and-control/attributes.html">
+            
+                <a href="../concepts/policy-and-control/attributes.html">
+            
+                    
+                    属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.2" data-path="../concepts/policy-and-control/mixer.html">
+            
+                <a href="../concepts/policy-and-control/mixer.html">
+            
+                    
+                    Mixer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.3" data-path="../concepts/policy-and-control/mixer-config.html">
+            
+                <a href="../concepts/policy-and-control/mixer-config.html">
+            
+                    
+                    Mixer配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.4" data-path="../concepts/policy-and-control/mixer-aspect-config.html">
+            
+                <a href="../concepts/policy-and-control/mixer-aspect-config.html">
+            
+                    
+                    Mixer Aspect配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    任务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="installing-istio.html">
+            
+                <a href="installing-istio.html">
+            
+                    
+                    安装Istio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="integrating-services-into-istio.html">
+            
+                <a href="integrating-services-into-istio.html">
+            
+                    
+                    将服务集成到网格中
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="ingress.html">
+            
+                <a href="ingress.html">
+            
+                    
+                    启用入口流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="egress.html">
+            
+                <a href="egress.html">
+            
+                    
+                    启用出口流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="request-routing.html">
+            
+                <a href="request-routing.html">
+            
+                    
+                    配置请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="fault-injection.html">
+            
+                <a href="fault-injection.html">
+            
+                    
+                    故障注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="request-timeouts.html">
+            
+                <a href="request-timeouts.html">
+            
+                    
+                    设置请求超时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="rate-limiting.html">
+            
+                <a href="rate-limiting.html">
+            
+                    
+                    启用限速
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="basic-access-control.html">
+            
+                <a href="basic-access-control.html">
+            
+                    
+                    启用简单的访问控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="istio-auth.html">
+            
+                <a href="istio-auth.html">
+            
+                    
+                    测试Istio Auth
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2.11" data-path="metrics-logs.html">
+            
+                <a href="metrics-logs.html">
+            
+                    
+                    收集指标和日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="zipkin-tracing.html">
+            
+                <a href="zipkin-tracing.html">
+            
+                    
+                    分布式请求跟踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../samples/">
+            
+                <a href="../samples/">
+            
+                    
+                    示例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../samples/bookinfo.html">
+            
+                <a href="../samples/bookinfo.html">
+            
+                    
+                    BookInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../tags.html">
+            
+                <a href="../../tags.html">
+            
+                    
+                    全文标签总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >收集指标和日志</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6536;&#x96C6;&#x6307;&#x6807;&#x548C;&#x65E5;&#x5FD7;">&#x6536;&#x96C6;&#x6307;&#x6807;&#x548C;&#x65E5;&#x5FD7;</h1>
+<p>This task shows how to configure Mixer to automatically gather telemetry
+for a service within a cluster. At the end of this task, a new metric and
+a new log stream will be enabled for calls to a specific service within your
+cluster.</p>
+<p>The <a href="../samples/bookinfo.html">BookInfo</a> sample application is used
+as the example application throughout this task.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<ul>
+<li><p><a href="installing-istio.html">Install Istio</a> in your kubernetes
+cluster and deploy an application.</p>
+</li>
+<li><p>Configure your environment to support calling <code>istioctl mixer</code>.
+This may require setting up port-forwarding for the Mixer Config API as described in the
+<a href="../reference/commands/istioctl.html#istioctl-mixer">reference docs</a> for <code>istioctl mixer</code>.</p>
+</li>
+<li><p>Configure your environment to support accessing the Istio dashboard, as described in the 
+<a href="installing-istio.html">Installation Guide</a>. This requires installing the optional add-ons
+(<a href="https://prometheus.io" target="_blank">Prometheus</a> and <a href="https://grafana.com/" target="_blank">Grafana</a>), as well as verifying access to
+the dashboard. The Istio dashboard will be used to verify task success.</p>
+</li>
+</ul>
+<h2 id="collecting-new-telemetry-data">Collecting new telemetry data</h2>
+<ol>
+<li><p>Create a new YAML file to hold configuration for
+the new metric and log stream that Istio will generate and collect
+automatically.</p>
+<p>Save the following as <code>new_rule.yaml</code>:</p>
+<pre data-src="https://raw.githubusercontent.com/istio/istio/release-0.1/samples/apps/bookinfo/mixer-rule-additional-telemetry.yaml"></pre>
+</li>
+<li><p>Pick a target service for the new rule.</p>
+<p>If using the BookInfo sample, select <code>reviews.default.svc.cluster.local</code>. 
+A fully-qualified domain name for the service is required in the following steps.</p>
+</li>
+<li><p>Validate that the selected service has no service-specific rules
+already applied.</p>
+<pre><code class="lang-bash">istioctl mixer rule get reviews.default.svc.cluster.local reviews.default.svc.cluster.local
+</code></pre>
+<p>The expected output is:</p>
+<pre><code class="lang-bash">Error: the server could not find the requested resource
+</code></pre>
+<p>If your selected service has service-specific rules, update <code>new_rule.yaml</code>
+to include the existing rules appropriately. Append the rule from <code>new_rule.yaml</code>
+to the existing <code>rules</code> block and save the updated content back over <code>new_rule.yaml</code>.</p>
+</li>
+<li><p>Push the new configuration to Mixer for a specific service.</p>
+<pre><code class="lang-bash">istioctl mixer rule create reviews.default.svc.cluster.local reviews.default.svc.cluster.local <span class="hljs-_">-f</span> new_rule.yaml
+</code></pre>
+</li>
+<li><p>Send traffic to that service.</p>
+<p>For the BookInfo sample, visit <code>http://$GATEWAY_URL/productpage</code> in your web browser or
+issue the following command:</p>
+<pre><code class="lang-bash">curl http://<span class="hljs-variable">$GATEWAY_URL</span>/productpage
+</code></pre>
+<p>For purposes of this task, please refresh the page several times or issue the curl
+command a few times to generate traffic.</p>
+</li>
+<li><p>Verify that the new metric is being collected.</p>
+<p>Setup port-forwarding for Grafana:</p>
+<pre><code class="lang-bash">kubectl port-forward $(kubectl get pod <span class="hljs-_">-l</span> app=grafana -o jsonpath=<span class="hljs-string">&apos;{.items[0].metadata.name}&apos;</span>) 3000:3000 &amp;
+</code></pre>
+<p>Then open the Istio dashboard in a web browser: <a href="http://localhost:3000/dashboard/db/istio-dashboard" target="_blank">http://localhost:3000/dashboard/db/istio-dashboard</a></p>
+<p>One of the rows in the dashboard will be named &quot;reviews&quot;. If that row is not visible, please refresh the dashboard page. The &quot;reviews&quot; row
+contains a graph entitled &quot;Response Size by Source And Version&quot;. The graph displays a breakdown of the distribution of Response Sizes returned
+by the &quot;reviews&quot; service.</p>
+<p>The request from the previous step is reflected in the graphs. This looks similar to:</p>
+<figure><img style="max-width: 100%;" src="img/dashboard_response_size.png" alt="Istio Dashboard for Reviews Service" title="Istio Dashboard for Reviews Service">
+<figcaption>Istio Dashboard for Reviews Service</figcaption></figure>
+</li>
+<li><p>Verify that the logs stream has been created and is being populated
+for requests.</p>
+<p>Search through the logs for the Mixer pod as follows:</p>
+<pre><code class="lang-bash">kubectl logs $(kubectl get pods <span class="hljs-_">-l</span> istio=mixer -o jsonpath=<span class="hljs-string">&apos;{.items[0].metadata.name}&apos;</span>) | grep \<span class="hljs-string">&quot;combined_log\&quot;
+</span></code></pre>
+<p>The expected output is similar to:</p>
+<pre><code class="lang-json">{<span class="hljs-string">&quot;logName&quot;</span>:<span class="hljs-string">&quot;combined_log&quot;</span>,<span class="hljs-string">&quot;labels&quot;</span>:{<span class="hljs-string">&quot;referer&quot;</span>:<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-string">&quot;responseSize&quot;</span>:<span class="hljs-number">871</span>,<span class="hljs-string">&quot;timestamp&quot;</span>:<span class="hljs-string">&quot;2017-04-29T02:11:54.989466058Z&quot;</span>,<span class="hljs-string">&quot;url&quot;</span>:<span class="hljs-string">&quot;/reviews&quot;</span>,<span class="hljs-string">&quot;userAgent&quot;</span>:<span class="hljs-string">&quot;python-requests/2.11.1&quot;</span>},<span class="hljs-string">&quot;textPayload&quot;</span>:<span class="hljs-string">&quot;- - - [29/Apr/2017:02:11:54 +0000] \&quot;- /reviews -\&quot; - 871 - python-requests/2.11.1&quot;</span>}
+</code></pre>
+</li>
+</ol>
+<h2 id="understanding-the-new-telemetry-rule">Understanding the new telemetry rule</h2>
+<p>In this task, you added a new rule for a service within your cluster.
+The new rule instructed Mixer to automatically generate and report a
+new metric and a new log stream for all traffic going to a specific
+service.</p>
+<p>The new rule was comprised of a new <code>aspect</code> definitions. These <code>aspect</code>
+definitions were for the aspect kind of <code>metrics</code> and <code>access-logs</code>.</p>
+<h3 id="understanding-the-rules-metrics-aspect">Understanding the rule&apos;s metrics aspect</h3>
+<p>The <code>metrics</code> aspect directs Mixer to report metrics to the <code>prometheus</code>
+adapter. The adapter <code>params</code> tell Mixer <em>how</em> to generate metric values
+for any given request, based on the attributes reported by Envoy (and
+generated by Mixer itself).</p>
+<p>The schema for the metric came from a predefined metric <code>descriptor</code>
+known to Mixer. In this task, the descriptor used was <code>response_size</code>.
+The <code>response_size</code> metric descriptor uses buckets to record a 
+distribution of values, making it easier for the backend metrics systems
+to provide summary statistics for a bunch of requests in aggregate (as
+is often desirable when looking at response sizes).</p>
+<p>The new rule instructs Mixer to generate values for the metric based
+on the values of the attribute <code>response.size</code>. A default values of <code>0</code>
+was added, in case Envoy does not report the values as expected.</p>
+<p>A set of dimensions were also configured for the metric value, via the
+<code>labels</code> chunks of configuration. For the new metric, the dimensions
+were <code>source</code>, <code>target</code>, <code>service</code>, <code>version</code>, <code>method</code>, and <code>response_code</code>.</p>
+<p>Dimensions provide a way to slice, aggregate, and analyze metric data
+according to different needs and directions of inquiry. For instance, it
+may be desirable to only consider response sizes for non-error responses
+when troubleshooting the rollout of a new application version.</p>
+<p>The new rule instructs Mixer to populate values for these dimensions
+based on attribute values. For instance, for the <code>service</code> dimension, the
+new rule requests that the value be taken from the <code>target.labels[&quot;app&quot;]</code> 
+attribute. If that attribute value is not populated, the rule instructs
+ Mixer to use a default value of <code>&quot;unknown&quot;</code>.</p>
+<p>At the moment, it is not possible to programmatically generate new metric
+descriptors for use within Mixer. As a result, all new metric configurations
+must use one of the predefined metrics descriptors: <code>request_count</code>,
+<code>request_duration</code>, <code>request_size</code>, and <code>response_size</code>.</p>
+<p>Work is ongoing to extend the Mixer Config API to add support for creating
+new descriptors.</p>
+<h3 id="understanding-the-rules-accesslogs-aspect">Understanding the rule&apos;s access_logs aspect</h3>
+<p>The <code>access-logs</code> aspect directs Mixer to send access logs to the <code>default</code>
+adapter (typically, <code>stdioLogger</code>). The adapter <code>params</code> tell Mixer <em>how</em> 
+to generate the access logs for incoming requests based on attributes reported
+by Envoy.</p>
+<p>The <code>logName</code> parameter is used by Mixer to identify a logs stream. In
+this task, the log name <code>combined_log</code> was used to identify the log
+stream amidst the rest of the Mixer logging output. This name should be
+used to uniquely identify log streams to various logging backends.</p>
+<p>The <code>log</code> section of the rule describes the shape of the access log that
+Mixer will generate when the rule is applied. In this task, the pre-configured 
+definition for an access log named <code>accesslog.combined</code> was used. It
+is based on the well-known <a href="https://httpd.apache.org/docs/1.3/logs.html#combined" target="_blank">Combined Log Format</a>.</p>
+<p>Access logs use a template to generate a plaintext log from a set of
+named arguments. The template is defined in the configured <code>descriptor</code>
+for the aspect. In this task, the template used is defined in the
+descriptor named <code>accesslog.combined</code>. The set of inputs to the <code>template_expressions</code>
+is fixed in the descriptor and cannot be altered in aspect configuration.</p>
+<p>The <code>template_expressions</code> describe how to translate attribute values
+into the named arguments for the template processing. For example, the
+value for <code>userAgent</code> is to be derived directly from the value for the
+attribute <code>request.headers[&quot;user-agent&quot;]</code>.</p>
+<p>Mixer supports structured log generation in addition to plaintext logs. In
+this task, a set of <code>labels</code> to populate for structured
+log generation was configured. These <code>labels</code> are populated from attribute values
+according to attribute expressions, in exactly the same manner as the
+<code>template_expressions</code>.</p>
+<p>While it is common practice to include the same set of arguments in the
+<code>labels</code> as in the <code>template_expressions</code>, this is not required. Mixer
+will generate the <code>labels</code> completely independently of the <code>template_expressions</code>.</p>
+<p>As with metric descriptors, it is not currently possible to programmatically
+generate new access logs descriptors. Work is ongoing to extend the Mixer
+Config API to add support for creating new descriptors.</p>
+<h2 id="whats-next">What&apos;s next</h2>
+<ul>
+<li><p>Learn more about <a href="../concepts/policy-and-control/mixer.html">Mixer</a> and <a href="../concepts/policy-and-control/mixer-config.html">Mixer Config</a>.</p>
+</li>
+<li><p>Discover the full <a href="../reference/config/mixer/attribute-vocabulary.html">Attribute Vocabulary</a>.</p>
+</li>
+<li><p>Read the reference guide to <a href="../reference/writing-config.html">Writing Config</a>.</p>
+</li>
+<li><p>If you are not planning to explore any follow-on tasks, refer to the
+<a href="../samples/bookinfo.html#cleanup">BookInfo cleanup</a> instructions
+to shutdown the application and cleanup the associated rules.</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="istio-auth.html" class="navigation navigation-prev " aria-label="Previous page: 测试Istio Auth">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="zipkin-tracing.html" class="navigation navigation-next " aria-label="Next page: 分布式请求跟踪">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"收集指标和日志","level":"1.2.2.11","depth":3,"next":{"title":"分布式请求跟踪","level":"1.2.2.12","depth":3,"path":"docs/tasks/zipkin-tracing.md","ref":"docs/tasks/zipkin-tracing.md","articles":[]},"previous":{"title":"测试Istio Auth","level":"1.2.2.10","depth":3,"path":"docs/tasks/istio-auth.md","ref":"docs/tasks/istio-auth.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","callouts","splitter","-sharing","edit-link","wide-page","page-toc-button","back-to-top-button","tags","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"callouts":{"showTypeInHeader":false},"livereload":{},"splitter":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"tags":{"placement":"top"},"edit-link":{"label":"Edit","base":"https://github.com/doczhcn/istio/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Sky Ao <aoxiaojian@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README_gitbook.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"adapterConfig":"/docs/reference/config/mixer/adapters","aspectConfig":"/docs/reference/config/mixer/aspects","mixerConfig":"/docs/reference/config/mixer/aspects/metrics.md","siteDataIstioVersion":"pre0.2"},"title":"Istio官方文档中文版","language":"zh-hans","links":{"sidebar":{"doczh.cn":"http://doczh.cn"}},"gitbook":">=3.2.0","description":"Istio官方文档中文版","extension":null},"file":{"path":"docs/tasks/metrics-logs.md","mtime":"2017-09-19T12:50:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-19T13:29:17.787Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

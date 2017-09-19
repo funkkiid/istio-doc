@@ -1,0 +1,1040 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>启用入口流量 · Istio官方文档中文版</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="Sky Ao <aoxiaojian@gmail.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-callouts/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-wide-page/wide.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="egress.html" />
+    
+    
+    <link rel="prev" href="integrating-services-into-istio.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://doczh.cn" target="_blank" class="custom-link">doczh.cn</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    官方文档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../concepts/">
+            
+                <a href="../concepts/">
+            
+                    
+                    概念
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../concepts/what-is-istio/">
+            
+                <a href="../concepts/what-is-istio/">
+            
+                    
+                    Istio是什么?
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../concepts/what-is-istio/overview.html">
+            
+                <a href="../concepts/what-is-istio/overview.html">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../concepts/what-is-istio/goals.html">
+            
+                <a href="../concepts/what-is-istio/goals.html">
+            
+                    
+                    设计目标
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../concepts/traffic-management/">
+            
+                <a href="../concepts/traffic-management/">
+            
+                    
+                    流量管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1" data-path="../concepts/traffic-management/overview.html">
+            
+                <a href="../concepts/traffic-management/overview.html">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.2" data-path="../concepts/traffic-management/pilot.html">
+            
+                <a href="../concepts/traffic-management/pilot.html">
+            
+                    
+                    Pilot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3" data-path="../concepts/traffic-management/request-routing.html">
+            
+                <a href="../concepts/traffic-management/request-routing.html">
+            
+                    
+                    请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.4" data-path="../concepts/traffic-management/load-balancing.html">
+            
+                <a href="../concepts/traffic-management/load-balancing.html">
+            
+                    
+                    发现和负载均衡
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.5" data-path="../concepts/traffic-management/handling-failures.html">
+            
+                <a href="../concepts/traffic-management/handling-failures.html">
+            
+                    
+                    处理故障
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.6" data-path="../concepts/traffic-management/fault-injection.html">
+            
+                <a href="../concepts/traffic-management/fault-injection.html">
+            
+                    
+                    故障注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.7" data-path="../concepts/traffic-management/rules-configuration.html">
+            
+                <a href="../concepts/traffic-management/rules-configuration.html">
+            
+                    
+                    规则配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../concepts/network-and-auth/">
+            
+                <a href="../concepts/network-and-auth/">
+            
+                    
+                    网络和认证
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.1" data-path="../concepts/network-and-auth/auth.html">
+            
+                <a href="../concepts/network-and-auth/auth.html">
+            
+                    
+                    认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../concepts/policy-and-control/">
+            
+                <a href="../concepts/policy-and-control/">
+            
+                    
+                    策略与控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.4.1" data-path="../concepts/policy-and-control/attributes.html">
+            
+                <a href="../concepts/policy-and-control/attributes.html">
+            
+                    
+                    属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.2" data-path="../concepts/policy-and-control/mixer.html">
+            
+                <a href="../concepts/policy-and-control/mixer.html">
+            
+                    
+                    Mixer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.3" data-path="../concepts/policy-and-control/mixer-config.html">
+            
+                <a href="../concepts/policy-and-control/mixer-config.html">
+            
+                    
+                    Mixer配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.4" data-path="../concepts/policy-and-control/mixer-aspect-config.html">
+            
+                <a href="../concepts/policy-and-control/mixer-aspect-config.html">
+            
+                    
+                    Mixer Aspect配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    任务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="installing-istio.html">
+            
+                <a href="installing-istio.html">
+            
+                    
+                    安装Istio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="integrating-services-into-istio.html">
+            
+                <a href="integrating-services-into-istio.html">
+            
+                    
+                    将服务集成到网格中
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2.3" data-path="ingress.html">
+            
+                <a href="ingress.html">
+            
+                    
+                    启用入口流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="egress.html">
+            
+                <a href="egress.html">
+            
+                    
+                    启用出口流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="request-routing.html">
+            
+                <a href="request-routing.html">
+            
+                    
+                    配置请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="fault-injection.html">
+            
+                <a href="fault-injection.html">
+            
+                    
+                    故障注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="request-timeouts.html">
+            
+                <a href="request-timeouts.html">
+            
+                    
+                    设置请求超时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="rate-limiting.html">
+            
+                <a href="rate-limiting.html">
+            
+                    
+                    启用限速
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="basic-access-control.html">
+            
+                <a href="basic-access-control.html">
+            
+                    
+                    启用简单的访问控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="istio-auth.html">
+            
+                <a href="istio-auth.html">
+            
+                    
+                    测试Istio Auth
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="metrics-logs.html">
+            
+                <a href="metrics-logs.html">
+            
+                    
+                    收集指标和日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="zipkin-tracing.html">
+            
+                <a href="zipkin-tracing.html">
+            
+                    
+                    分布式请求跟踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../samples/">
+            
+                <a href="../samples/">
+            
+                    
+                    示例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../samples/bookinfo.html">
+            
+                <a href="../samples/bookinfo.html">
+            
+                    
+                    BookInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../tags.html">
+            
+                <a href="../../tags.html">
+            
+                    
+                    全文标签总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >启用入口流量</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x542F;&#x7528;&#x5165;&#x53E3;&#x6D41;&#x91CF;">&#x542F;&#x7528;&#x5165;&#x53E3;&#x6D41;&#x91CF;</h1>
+<p>This task describes how to configure Istio to expose a service outside of the service mesh cluster.
+In a Kubernetes environment,
+Istio uses <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/" target="_blank">Kubernetes Ingress Resources</a>
+to configure ingress behavior.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<ul>
+<li><p>Setup Istio by following the instructions in the
+<a href="installing-istio.html">Installation guide</a>.</p>
+</li>
+<li><p>Make sure your current directory is the <code>istio</code> directory.</p>
+</li>
+<li><p>Start the <a href="https://github.com/istio/istio/tree/master/samples/apps/httpbin" target="_blank">httpbin</a> sample,
+which will be used as the destination service to be exposed externally.</p>
+<pre><code class="lang-bash">kubectl apply <span class="hljs-_">-f</span> &lt;(istioctl kube-inject <span class="hljs-_">-f</span> samples/apps/httpbin/httpbin.yaml)
+</code></pre>
+</li>
+</ul>
+<h2 id="configuring-ingress-http">Configuring ingress (HTTP)</h2>
+<ol>
+<li><p>Create the Ingress Resource for the httpbin service</p>
+<pre><code class="lang-bash">cat &lt;&lt;EOF | kubectl create <span class="hljs-_">-f</span> -
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: simple-ingress
+  annotations:
+    kubernetes.io/ingress.class: istio
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /headers
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+      - path: /delay/.*
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+EOF
+</code></pre>
+<p>Notice that in this example we are only exposing httpbin&apos;s two endpoints: <code>/headers</code> as an exact URI path and <code>/delay/</code> using an URI prefix.</p>
+</li>
+<li><p>Determine the ingress URL:</p>
+<ul>
+<li><p>If your cluster is running in an environment that supports external load balancers,
+use the ingress&apos; external address:</p>
+<pre><code class="lang-bash">kubectl get ingress simple-ingress -o wide
+</code></pre>
+<pre><code class="lang-bash">NAME             HOSTS     ADDRESS                 PORTS     AGE
+simple-ingress   *         130.211.10.121          80        1d
+</code></pre>
+<pre><code class="lang-bash"><span class="hljs-built_in">export</span> INGRESS_URL=130.211.10.121
+</code></pre>
+</li>
+<li><p>If load balancers are not supported, use the ingress controller pod&apos;s hostIP:</p>
+<pre><code class="lang-bash">kubectl get po <span class="hljs-_">-l</span> istio=ingress -o jsonpath=<span class="hljs-string">&apos;{.items[0].status.hostIP}&apos;</span>
+</code></pre>
+<pre><code class="lang-bash">169.47.243.100
+</code></pre>
+<p>along with the istio-ingress service&apos;s nodePort for port 80:</p>
+<pre><code class="lang-bash">kubectl get svc istio-ingress
+</code></pre>
+<pre><code class="lang-bash">NAME            CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
+istio-ingress   10.10.10.155   &lt;pending&gt;     80:31486/TCP,443:32254/TCP   32m
+</code></pre>
+<pre><code class="lang-bash"><span class="hljs-built_in">export</span> INGRESS_URL=169.47.243.100:31486
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>Access the httpbin service using <em>curl</em>:</p>
+<pre><code class="lang-bash">curl http://<span class="hljs-variable">$INGRESS_URL</span>/headers
+</code></pre>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;headers&quot;</span>: {
+    <span class="hljs-string">&quot;Accept&quot;</span>: <span class="hljs-string">&quot;*/*&quot;</span>, 
+    <span class="hljs-string">&quot;Content-Length&quot;</span>: <span class="hljs-string">&quot;0&quot;</span>, 
+    <span class="hljs-string">&quot;Host&quot;</span>: <span class="hljs-string">&quot;httpbin.default.svc.cluster.local:8000&quot;</span>, 
+    <span class="hljs-string">&quot;User-Agent&quot;</span>: <span class="hljs-string">&quot;curl/7.51.0&quot;</span>, 
+    <span class="hljs-string">&quot;X-Envoy-Expected-Rq-Timeout-Ms&quot;</span>: <span class="hljs-string">&quot;15000&quot;</span>, 
+    <span class="hljs-string">&quot;X-Request-Id&quot;</span>: <span class="hljs-string">&quot;3dd59054-6e26-4af5-87cf-a247bc634bab&quot;</span>
+  }
+}
+</code></pre>
+</li>
+</ol>
+<h2 id="configuring-secure-ingress-https">Configuring secure ingress (HTTPS)</h2>
+<ol>
+<li><p>Generate keys if necessary</p>
+<p>A private key and certificate can be created for testing using <a href="https://www.openssl.org/" target="_blank">OpenSSL</a>.</p>
+<pre><code class="lang-bash">openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /tmp/tls.key -out /tmp/tls.crt -subj <span class="hljs-string">&quot;/CN=foo.bar.com&quot;</span>
+</code></pre>
+</li>
+<li><p>Create the secret using <code>kubectl</code></p>
+<pre><code class="lang-bash">kubectl create secret tls ingress-secret --key /tmp/tls.key --cert /tmp/tls.crt
+</code></pre>
+</li>
+<li><p>Create the Ingress Resource for the httpbin service</p>
+<pre><code class="lang-bash">cat &lt;&lt;EOF | kubectl create <span class="hljs-_">-f</span> -
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: secured-ingress
+  annotations:
+    kubernetes.io/ingress.class: istio
+spec:
+  tls:
+    - secretName: ingress-secret
+  rules:
+  - http:
+      paths:
+      - path: /ip
+        backend:
+          serviceName: httpbin
+          servicePort: 8000
+EOF
+</code></pre>
+<p>Notice that in this example we are only exposing httpbin&apos;s <code>/ip</code> endpoint.</p>
+<blockquote>
+<p>Note: Envoy currently only allows a single TLS secret in the ingress since SNI is not yet supported.</p>
+</blockquote>
+</li>
+<li><p>Determine the secure ingress URL:</p>
+<ul>
+<li><p>If your cluster is running in an environment that supports external load balancers,
+use the ingress&apos; external address:</p>
+<pre><code class="lang-bash">kubectl get ingress secured-ingress -o wide
+</code></pre>
+<pre><code class="lang-bash">NAME              HOSTS     ADDRESS                 PORTS     AGE
+secured-ingress   *         130.211.10.121          80, 443   1d
+</code></pre>
+<pre><code class="lang-bash"><span class="hljs-built_in">export</span> SECURE_INGRESS_URL=130.211.10.121
+</code></pre>
+<blockquote>
+<p>Note that in this case SECURE_INGRESS_URL should be the same as INGRESS_URL that you set previously.</p>
+</blockquote>
+</li>
+<li><p>If load balancers are not supported, use the ingress controller pod&apos;s hostIP:</p>
+<pre><code class="lang-bash">kubectl get po <span class="hljs-_">-l</span> istio=ingress -o jsonpath=<span class="hljs-string">&apos;{.items[0].status.hostIP}&apos;</span>
+</code></pre>
+<pre><code class="lang-bash">169.47.243.100
+</code></pre>
+<p>along with the istio-ingress service&apos;s nodePort for port 443:</p>
+<pre><code class="lang-bash">kubectl get svc istio-ingress
+</code></pre>
+<pre><code class="lang-bash">NAME            CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
+istio-ingress   10.10.10.155   &lt;pending&gt;     80:31486/TCP,443:32254/TCP   32m
+</code></pre>
+<pre><code class="lang-bash"><span class="hljs-built_in">export</span> SECURE_INGRESS_URL=169.47.243.100:32254
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>Access the secured httpbin service using <em>curl</em>:</p>
+<pre><code class="lang-bash">curl -k https://<span class="hljs-variable">$SECURE_INGRESS_URL</span>/ip
+</code></pre>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;origin&quot;</span>: <span class="hljs-string">&quot;129.42.161.35&quot;</span>
+}
+</code></pre>
+</li>
+</ol>
+<h2 id="setting-istio-rules-on-an-edge-service">Setting Istio rules on an edge service</h2>
+<p>Similar to inter-cluster requests, Istio 
+<a href="../concepts/traffic-management/rules-configuration.html">routing rules</a>
+can also be set for edge services
+that are called from outside the cluster.
+To illustrate we will use <a href="../reference/commands/istioctl.html">istioctl</a>
+to set a timeout rule on calls to the httpbin service.</p>
+<ol>
+<li><p>Invoke the httpbin <code>/delay</code> endpoint you exposed previously:</p>
+<pre><code class="lang-bash">time curl -o /dev/null <span class="hljs-_">-s</span> -w <span class="hljs-string">&quot;%{http_code}\n&quot;</span> http://<span class="hljs-variable">$INGRESS_URL</span>/delay/5
+</code></pre>
+<pre><code class="lang-bash">200
+
+real    0m5.024s
+user    0m0.003s
+sys     0m0.003s
+</code></pre>
+<p>The request should return 200 (OK) in approximately 5 seconds.</p>
+</li>
+<li><p>Use <code>istioctl</code> to set a 3s timeout on calls to the httpbin service</p>
+<pre><code class="lang-bash">cat &lt;&lt;EOF | istioctl create
+<span class="hljs-built_in">type</span>: route-rule
+name: httpbin-3s-rule
+spec:
+  destination: httpbin.default.svc.cluster.local
+  http_req_timeout:
+    simple_timeout:
+      timeout: 3s
+EOF
+</code></pre>
+<p>Note that you may need to change the <code>default</code> namespace to the namespace of the <code>httpbin</code> application.</p>
+</li>
+<li><p>Wait a few seconds, then issue the <em>curl</em> request again:</p>
+<pre><code class="lang-bash">time curl -o /dev/null <span class="hljs-_">-s</span> -w <span class="hljs-string">&quot;%{http_code}\n&quot;</span> http://<span class="hljs-variable">$INGRESS_URL</span>/delay/5
+</code></pre>
+<pre><code class="lang-bash">504
+
+real    0m3.149s
+user    0m0.004s
+sys     0m0.004s
+</code></pre>
+<p>This time a 504 (Gateway Timeout) appears after 3 seconds.
+Although httpbin was waiting 5 seconds, Istio cut off the request at 3 seconds.</p>
+</li>
+</ol>
+<blockquote>
+<p>Note: HTTP fault injection (abort and delay) is not currently supported by ingress proxies.</p>
+</blockquote>
+<h2 id="understanding-ingresses">Understanding ingresses</h2>
+<p>Ingresses provide gateways for external traffic to enter the Istio service mesh
+and make the traffic management and policy features of Istio available for edge services.</p>
+<p>In the preceding steps we created a service inside the Istio service mesh and showed how
+to expose both HTTP and HTTPS endpoints of the service to external traffic.
+We also showed how to control the ingress traffic using an Istio route rule.</p>
+<h2 id="cleanup">Cleanup</h2>
+<ol>
+<li><p>Remove the secret, Ingress Resource definitions and Istio rule.</p>
+<pre><code class="lang-bash">istioctl delete route-rule httpbin-3s-rule 
+kubectl delete ingress simple-ingress secured-ingress 
+kubectl delete secret ingress-secret
+</code></pre>
+</li>
+<li><p>Shutdown the <a href="https://github.com/istio/istio/tree/master/samples/apps/httpbin" target="_blank">httpbin</a> service.</p>
+<pre><code class="lang-bash">kubectl delete <span class="hljs-_">-f</span> samples/apps/httpbin/httpbin.yaml
+</code></pre>
+</li>
+</ol>
+<h2 id="whats-next">What&apos;s next</h2>
+<ul>
+<li><p>Learn more about <a href="../concepts/traffic-management/rules-configuration.html">routing rules</a>.</p>
+</li>
+<li><p>Learn how to expose external services by <a href="egress.html">enabling egress traffic</a>.</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="integrating-services-into-istio.html" class="navigation navigation-prev " aria-label="Previous page: 将服务集成到网格中">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="egress.html" class="navigation navigation-next " aria-label="Next page: 启用出口流量">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"启用入口流量","level":"1.2.2.3","depth":3,"next":{"title":"启用出口流量","level":"1.2.2.4","depth":3,"path":"docs/tasks/egress.md","ref":"docs/tasks/egress.md","articles":[]},"previous":{"title":"将服务集成到网格中","level":"1.2.2.2","depth":3,"path":"docs/tasks/integrating-services-into-istio.md","ref":"docs/tasks/integrating-services-into-istio.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","callouts","splitter","-sharing","edit-link","wide-page","page-toc-button","back-to-top-button","tags","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"callouts":{"showTypeInHeader":false},"livereload":{},"splitter":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"tags":{"placement":"top"},"edit-link":{"label":"Edit","base":"https://github.com/doczhcn/istio/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Sky Ao <aoxiaojian@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README_gitbook.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"adapterConfig":"/docs/reference/config/mixer/adapters","aspectConfig":"/docs/reference/config/mixer/aspects","mixerConfig":"/docs/reference/config/mixer/aspects/metrics.md","siteDataIstioVersion":"pre0.2"},"title":"Istio官方文档中文版","language":"zh-hans","links":{"sidebar":{"doczh.cn":"http://doczh.cn"}},"gitbook":">=3.2.0","description":"Istio官方文档中文版","extension":null},"file":{"path":"docs/tasks/ingress.md","mtime":"2017-09-19T12:50:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-19T13:29:17.787Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

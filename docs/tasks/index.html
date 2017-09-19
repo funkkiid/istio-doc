@@ -1,0 +1,830 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>任务 · Istio官方文档中文版</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="Sky Ao <aoxiaojian@gmail.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-callouts/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-wide-page/wide.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tags/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="installing-istio.html" />
+    
+    
+    <link rel="prev" href="../concepts/policy-and-control/mixer-aspect-config.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://doczh.cn" target="_blank" class="custom-link">doczh.cn</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    官方文档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../concepts/">
+            
+                <a href="../concepts/">
+            
+                    
+                    概念
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../concepts/what-is-istio/">
+            
+                <a href="../concepts/what-is-istio/">
+            
+                    
+                    Istio是什么?
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../concepts/what-is-istio/overview.html">
+            
+                <a href="../concepts/what-is-istio/overview.html">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../concepts/what-is-istio/goals.html">
+            
+                <a href="../concepts/what-is-istio/goals.html">
+            
+                    
+                    设计目标
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../concepts/traffic-management/">
+            
+                <a href="../concepts/traffic-management/">
+            
+                    
+                    流量管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1" data-path="../concepts/traffic-management/overview.html">
+            
+                <a href="../concepts/traffic-management/overview.html">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.2" data-path="../concepts/traffic-management/pilot.html">
+            
+                <a href="../concepts/traffic-management/pilot.html">
+            
+                    
+                    Pilot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3" data-path="../concepts/traffic-management/request-routing.html">
+            
+                <a href="../concepts/traffic-management/request-routing.html">
+            
+                    
+                    请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.4" data-path="../concepts/traffic-management/load-balancing.html">
+            
+                <a href="../concepts/traffic-management/load-balancing.html">
+            
+                    
+                    发现和负载均衡
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.5" data-path="../concepts/traffic-management/handling-failures.html">
+            
+                <a href="../concepts/traffic-management/handling-failures.html">
+            
+                    
+                    处理故障
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.6" data-path="../concepts/traffic-management/fault-injection.html">
+            
+                <a href="../concepts/traffic-management/fault-injection.html">
+            
+                    
+                    故障注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.7" data-path="../concepts/traffic-management/rules-configuration.html">
+            
+                <a href="../concepts/traffic-management/rules-configuration.html">
+            
+                    
+                    规则配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../concepts/network-and-auth/">
+            
+                <a href="../concepts/network-and-auth/">
+            
+                    
+                    网络和认证
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.3.1" data-path="../concepts/network-and-auth/auth.html">
+            
+                <a href="../concepts/network-and-auth/auth.html">
+            
+                    
+                    认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../concepts/policy-and-control/">
+            
+                <a href="../concepts/policy-and-control/">
+            
+                    
+                    策略与控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.4.1" data-path="../concepts/policy-and-control/attributes.html">
+            
+                <a href="../concepts/policy-and-control/attributes.html">
+            
+                    
+                    属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.2" data-path="../concepts/policy-and-control/mixer.html">
+            
+                <a href="../concepts/policy-and-control/mixer.html">
+            
+                    
+                    Mixer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.3" data-path="../concepts/policy-and-control/mixer-config.html">
+            
+                <a href="../concepts/policy-and-control/mixer-config.html">
+            
+                    
+                    Mixer配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4.4" data-path="../concepts/policy-and-control/mixer-aspect-config.html">
+            
+                <a href="../concepts/policy-and-control/mixer-aspect-config.html">
+            
+                    
+                    Mixer Aspect配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    任务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="installing-istio.html">
+            
+                <a href="installing-istio.html">
+            
+                    
+                    安装Istio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="integrating-services-into-istio.html">
+            
+                <a href="integrating-services-into-istio.html">
+            
+                    
+                    将服务集成到网格中
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="ingress.html">
+            
+                <a href="ingress.html">
+            
+                    
+                    启用入口流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="egress.html">
+            
+                <a href="egress.html">
+            
+                    
+                    启用出口流量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="request-routing.html">
+            
+                <a href="request-routing.html">
+            
+                    
+                    配置请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="fault-injection.html">
+            
+                <a href="fault-injection.html">
+            
+                    
+                    故障注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.7" data-path="request-timeouts.html">
+            
+                <a href="request-timeouts.html">
+            
+                    
+                    设置请求超时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.8" data-path="rate-limiting.html">
+            
+                <a href="rate-limiting.html">
+            
+                    
+                    启用限速
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.9" data-path="basic-access-control.html">
+            
+                <a href="basic-access-control.html">
+            
+                    
+                    启用简单的访问控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.10" data-path="istio-auth.html">
+            
+                <a href="istio-auth.html">
+            
+                    
+                    测试Istio Auth
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.11" data-path="metrics-logs.html">
+            
+                <a href="metrics-logs.html">
+            
+                    
+                    收集指标和日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.12" data-path="zipkin-tracing.html">
+            
+                <a href="zipkin-tracing.html">
+            
+                    
+                    分布式请求跟踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../samples/">
+            
+                <a href="../samples/">
+            
+                    
+                    示例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../samples/bookinfo.html">
+            
+                <a href="../samples/bookinfo.html">
+            
+                    
+                    BookInfo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../tags.html">
+            
+                <a href="../../tags.html">
+            
+                    
+                    全文标签总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >任务</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4EFB;&#x52A1;">&#x4EFB;&#x52A1;</h1>
+<p>&#x4EFB;&#x52A1;&#x5411;&#x60A8;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;Istio&#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x5355;&#x4E2A;&#x7279;&#x5B9A;&#x76EE;&#x6807;&#x884C;&#x4E3A;&#x3002;</p>
+<ul>
+<li><p><a href="installing-istio.html">&#x5B89;&#x88C5;Istio</a>: &#x6B64;&#x4EFB;&#x52A1;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x642D;&#x5EFA;Istio&#x670D;&#x52A1;&#x7F51;&#x683C;&#x3002;</p>
+</li>
+<li><p><a href="integrating-services-into-istio.html">&#x5C06;&#x670D;&#x52A1;&#x96C6;&#x6210;&#x5230;&#x7F51;&#x683C;&#x4E2D;</a>: &#x6B64;&#x4EFB;&#x52A1;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x5C06;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E0E;Istio&#x670D;&#x52A1;&#x7F51;&#x683C;&#x96C6;&#x6210;&#x3002;</p>
+</li>
+<li><p><a href="ingress.html">&#x542F;&#x7528;&#x5165;&#x53E3;&#x6D41;&#x91CF;</a>: &#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x914D;&#x7F6E;Istio&#x6765;&#x66B4;&#x9732;&#x670D;&#x52A1;&#x5230;&#x670D;&#x52A1;&#x7F51;&#x683C;&#x5916;&#x3002;</p>
+</li>
+<li><p><a href="egress.html">&#x542F;&#x7528;&#x51FA;&#x53E3;&#x6D41;&#x91CF;</a>: &#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x914D;&#x7F6E;Istio&#x6765;&#x5C06;&#x7F51;&#x683C;&#x4E2D;&#x7684;&#x670D;&#x52A1;&#x6D41;&#x91CF;&#x8DEF;&#x7531;&#x5230;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x3002;</p>
+</li>
+<li><p><a href="request-routing.html">&#x914D;&#x7F6E;&#x8BF7;&#x6C42;&#x8DEF;&#x7531;</a>: &#x6B64;&#x4EFB;&#x52A1;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x6839;&#x636E;&#x6743;&#x91CD;&#x548C;HTTP header&#x914D;&#x7F6E;&#x52A8;&#x6001;&#x8BF7;&#x6C42;&#x8DEF;&#x7531;&#x3002;</p>
+</li>
+<li><p><a href="fault-injection.html">&#x6545;&#x969C;&#x6CE8;&#x5165;</a>: &#x6B64;&#x4EFB;&#x52A1;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x6CE8;&#x5165;&#x5EF6;&#x8FDF;&#x5E76;&#x6D4B;&#x8BD5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x5F39;&#x6027;&#x3002;</p>
+</li>
+<li><p><a href="request-timeouts.html">&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x8D85;&#x65F6;</a>: &#x6B64;&#x4EFB;&#x52A1;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;Istio&#x5728;Envoy&#x4E2D;&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x8D85;&#x65F6;&#x3002;</p>
+</li>
+<li><p><a href="rate-limiting.html">&#x542F;&#x7528;&#x9650;&#x901F;</a>: &#x6B64;&#x4EFB;&#x52A1;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;Istio&#x52A8;&#x6001;&#x5730;&#x9650;&#x5236;&#x6D41;&#x91CF;&#x5230;&#x670D;&#x52A1;&#x3002;</p>
+</li>
+<li><p><a href="basic-access-control.html">&#x542F;&#x7528;&#x7B80;&#x5355;&#x7684;&#x8BBF;&#x95EE;&#x63A7;&#x5236;</a>: &#x6B64;&#x4EFB;&#x52A1;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;Istio&#x63A7;&#x5236;&#x5BF9;&#x670D;&#x52A1;&#x7684;&#x8BBF;&#x95EE;&#x3002;</p>
+</li>
+<li><p><a href="istio-auth.html">&#x6D4B;&#x8BD5;Istio Auth</a>: &#x6B64;&#x4EFB;&#x52A1;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x9A8C;&#x8BC1;&#x548C;&#x6D4B;&#x8BD5;Istio-Auth&#x3002;</p>
+</li>
+<li><p><a href="metrics-logs.html">&#x6536;&#x96C6;&#x6307;&#x6807;&#x548C;&#x65E5;&#x5FD7;</a>: &#x6B64;&#x4EFB;&#x52A1;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x914D;&#x7F6E;Mixer&#x4ECE;Envoy&#x5B9E;&#x4F8B;&#x6536;&#x96C6;&#x6307;&#x6807;&#x548C;&#x65E5;&#x5FD7;&#x3002;</p>
+</li>
+<li><p><a href="zipkin-tracing.html">&#x5206;&#x5E03;&#x5F0F;&#x8BF7;&#x6C42;&#x8DDF;&#x8E2A;</a>: &#x5982;&#x4F55;&#x914D;&#x7F6E;&#x4EE3;&#x7406;&#x5411;Zipkin&#x53D1;&#x9001;&#x8DDF;&#x8E2A;&#x8BF7;&#x6C42;</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../concepts/policy-and-control/mixer-aspect-config.html" class="navigation navigation-prev " aria-label="Previous page: Mixer Aspect配置">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="installing-istio.html" class="navigation navigation-next " aria-label="Next page: 安装Istio">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"任务","level":"1.2.2","depth":2,"next":{"title":"安装Istio","level":"1.2.2.1","depth":3,"path":"docs/tasks/installing-istio.md","ref":"docs/tasks/installing-istio.md","articles":[]},"previous":{"title":"Mixer Aspect配置","level":"1.2.1.4.4","depth":4,"path":"docs/concepts/policy-and-control/mixer-aspect-config.md","ref":"docs/concepts/policy-and-control/mixer-aspect-config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","callouts","splitter","-sharing","edit-link","wide-page","page-toc-button","back-to-top-button","tags","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"callouts":{"showTypeInHeader":false},"livereload":{},"splitter":{},"search":{},"wide-page":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"page-toc-button":{},"back-to-top-button":{},"tags":{"placement":"top"},"edit-link":{"label":"Edit","base":"https://github.com/doczhcn/istio/edit/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Sky Ao <aoxiaojian@gmail.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README_gitbook.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"adapterConfig":"/docs/reference/config/mixer/adapters","aspectConfig":"/docs/reference/config/mixer/aspects","mixerConfig":"/docs/reference/config/mixer/aspects/metrics.md","siteDataIstioVersion":"pre0.2"},"title":"Istio官方文档中文版","language":"zh-hans","links":{"sidebar":{"doczh.cn":"http://doczh.cn"}},"gitbook":">=3.2.0","description":"Istio官方文档中文版","extension":null},"file":{"path":"docs/tasks/index.md","mtime":"2017-09-19T12:50:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-19T13:29:17.787Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
